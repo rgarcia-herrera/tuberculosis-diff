@@ -1,7 +1,8 @@
 # Tuberculosis-NRP
 
-
-Timeseries, gene expression, time series.
+Este repositorio contiene scripts para analizar expresión génica de
+tuberculosis y macrófagos en diferentes lapsos y fases, medida por un
+instrumento Agilent.
 
 
 # Datos
