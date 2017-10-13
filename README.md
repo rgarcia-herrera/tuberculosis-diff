@@ -1,3 +1,9 @@
+# Tuberculosis-NRP
+
+
+Timeseries, gene expression, time series.
+
+
 # Datos
 
 1. Carpeta txt Log Glu y ctrls 2 lavado. De las tres carpetas log Glu
@@ -56,8 +62,9 @@ para 48h
 Creo que si reportamos los analisis entre fases estaría ideal... o sea
 el análisis 4. De ahi los análisis 1-3 tienen la misma importancia
 
+<img src="design.png">
 
-
+--------
 
 http://master.bioconductor.org/help/workflows/arrays/
 
