@@ -1,16 +1,27 @@
 library('agilp')
 
 
-inputdir <- "/srv/home/rgarcia/microarreglos/nrp1_nrp2/"
-avg_dir <- "/srv/home/rgarcia/microarreglos/nrp1_nrp2/avg/"
 
-# extract red and green median expression data
-AAProcess(input = inputdir, output = avg_dir, s = 9)
+normalize <- function(base_dir, data_dir) {
+    data_dir <- file.path(base_dir, "data", "", fsep = "/")
+    avg_dir <- file.path(base_dir, "avg", "", fsep = "/")
+    norm_dir <- file.path(base_dir, "norm", "", fsep = "/")
+    dir.create(avg_dir)
+    dir.create(norm_dir)
 
-# create baseline
-baselinefile <- "/srv/home/rgarcia/microarreglos/nrp1_nrp2/norm/baseline.txt"
-Baseline(NORM="LOG", allfiles=TRUE, input=avg_dir, baseout=baselinefile)
+    ## extract green median expression data
+    AAProcess(input = data_dir, output = avg_dir, s = 9)
 
-# normalize
-normdir <- "/srv/home/rgarcia/microarreglos/nrp1_nrp2/norm/"
-AALoess(input=avg_dir, output=normdir, baseline = baselinefile, LOG="TRUE")
+    # create baseline
+    baseline_file <- file.path(norm_dir, "baseline.txt", fsep = "/")
+    Baseline(input=avg_dir, baseout=baseline_file)
+
+    # normalize
+    AALoess(input=avg_dir, output=norm_dir, baseline=baseline_file, LOG=TRUE)
+}
+
+
+normalize("/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado0")
+normalize("/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado1")
+normalize("/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2")
+normalize("/srv/home/rgarcia/tuberculosis-nrp/data/nrp1_nrp2")
