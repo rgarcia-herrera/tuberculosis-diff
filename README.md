@@ -36,19 +36,33 @@ biológicas.
 
 # Análisis
 
-1. De las fases LOG: contraste entre 24h y 48h.
+## Microarreglo LOG y CTRL
 
-2. Con las fases NRP 1 y 2: contraste entre 24h y 48h.
+De las fases LOG, contrastes:
+ - entre 24h y 48h.
+ - entre controles 4h, 24h y 48h
 
-3. NRP2 24H contra NRP1 24h y NRP2 48h contra NRP1 48h.
+<img src="design_log.png">
 
-4. NRP1 24h contra LOG 24h
-   NRP1 48h contra LOG 48h
-   NRP2 24h contra LOG 24h
-   NRP2 48h contra LOG 48h
+## Microarreglo NRP
 
+Contrastes:
 
-<img src="design.png">
+- 24h contr 48h en 1 y w
+
+- NRP2 24H contra NRP1 24h y NRP2 48h contra NRP1 48h.
+
+<img src="design_nrp.png">
+
+## Contraste inter-microarreglo
+
+- NRP1 24h contra LOG 24h
+- NRP1 48h contra LOG 48h
+- NRP2 24h contra LOG 24h
+- NRP2 48h contra LOG 48h
+
+Estos contrastes precisan de la creación de un baseline para
+normalizar entre los dos arreglos.
 
 
 # Bibliotecas para el análisis
@@ -57,6 +71,4 @@ Para extraer las intensidades verdes y normalizarlas hemos usado
 exitosamente la biblioteca
 [Agilp](https://www.bioconductor.org/packages/release/bioc/vignettes/agilp/inst/doc/agilp_manual.pdf).
 
-Pero también estamos examinando la posibilidad de usar Limma:
-
-http://bioconductor.org/packages/2.5/bioc/html/limma.html
+Pero también estamos examinando la posibilidad de usar [Limma](http://bioconductor.org/packages/2.5/bioc/html/limma.html).
