@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from slugify import slugify
 
-from design import contrasts_tb, contrasts_macrophage
+from design import nrp_tb, nrp_macrophage, log_tb_l0, log_macrophage_l0
 
 
 def scatter_plot(title, pair, color='red', top=10):
@@ -49,9 +49,14 @@ def scatter_plot(title, pair, color='red', top=10):
     plt.cla()
 
 
-for title in contrasts_tb:
-    scatter_plot(title, contrasts_tb[title], color='purple', top=5)
+for title in nrp_tb:
+    scatter_plot(title, nrp_tb[title], color='purple', top=5)
 
+for title in nrp_macrophage:
+    scatter_plot(title, nrp_macrophage[title], color='blue', top=5)
 
-for title in contrasts_macrophage:
-    scatter_plot(title, contrasts_macrophage[title], color='blue', top=5)
+for title in log_macrophage_l0:
+    scatter_plot(title, log_macrophage_l0[title], color='blue', top=5)
+
+for title in log_tb_l0:
+    scatter_plot(title, log_tb_l0[title], color='blue', top=5)
