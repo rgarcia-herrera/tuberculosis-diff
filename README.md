@@ -73,4 +73,7 @@ exitosamente la biblioteca
 
 Pero también estamos examinando la posibilidad de usar [Limma](http://bioconductor.org/packages/2.5/bioc/html/limma.html).
 
+
 https://gist.github.com/brentp/1152860
+
+http://matticklab.com/index.php?title=Single_channel_analysis_of_Agilent_microarray_data_with_Limma
