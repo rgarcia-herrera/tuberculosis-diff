@@ -1,22 +1,27 @@
 library(limma)
 
-
 targets <- readTargets("targets.txt")
-RG <- read.maimages(targets, source="agilent",  green.only=TRUE)
 
-RG <- backgroundCorrect(RG, method="normexp", offset=1)
-plotDensities(RG)
-MA <- normalizeBetweenArrays(RG, method="quantile")
-plotDensities(MA)
+x <- read.maimages(targets, path="somedirectory", source="agilent",green.only=TRUE)
+
+y <- backgroundCorrect(x, method="normexp", offset=16)
+
+y <- normalizeBetweenArrays(y, method="quantile")
+
+y.ave <- avereps(y, ID=y$genes$ProbeName)
 
 
-# make the design matrix
-d.levels = unique(targets$Condition)
-d.factor = factor(targets$Condition, levels=d.levels)
-d.design = model.matrix(~0 + d.factor)
-colnames(d.design) = levels(d.factor)
+f <- factor(targets$Condition, levels = unique(targets$Condition))
+design <- model.matrix(~0 + f)
+colnames(design) <- levels(f)
 
-contrast.matrix <- makeContrasts("nrp1_24", "nrp1_48", levels=d.design)
+fit <- lmFit(y.ave, design)
 
-## fit <- lmFit(MA)
-## fit <- eBayes(fit)
+contrast.matrix <- makeContrasts("Treatment1-Treatment2", "Treatment1-Treatment3", "Treatment2-Treatment1", levels=design)
+
+fit2 <- contrasts.fit(fit, contrast.matrix)
+fit2 <- eBayes(fit2)
+
+
+output <- topTable(fit2, adjust="BH", coef="Treatment1-Treatment2", genelist=y.ave$genes, number=Inf)
+write.table(output, file="Treatment1_vs_Treatment.txt", sep="\t", quote=FALSE)
