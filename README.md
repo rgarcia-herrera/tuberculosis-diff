@@ -72,3 +72,5 @@ exitosamente la biblioteca
 [Agilp](https://www.bioconductor.org/packages/release/bioc/vignettes/agilp/inst/doc/agilp_manual.pdf).
 
 Pero también estamos examinando la posibilidad de usar [Limma](http://bioconductor.org/packages/2.5/bioc/html/limma.html).
+
+https://gist.github.com/brentp/1152860
