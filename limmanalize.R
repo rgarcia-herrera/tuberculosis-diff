@@ -44,6 +44,9 @@ for (contrast in contrasts) {
     output <- topTable(fit2, adjust="BH", coef=contrast, genelist=y.ave$genes, number=Inf)
     write.table(output, file=paste("data/contrasts/", contrast, ".txt", sep=""), sep="\t", quote=FALSE)
 
+    output <- topTable(fit2, adjust="BH", coef=contrast, genelist=y.ave$genes, number=10)
+    write.table(output, file=paste("data/contrasts/", contrast, "_top10.txt", sep=""), sep="\t", quote=FALSE)
+
     results <- decideTests(fit2)
 
     png(paste("lplots/ma_", contrast, ".png", sep=""),
