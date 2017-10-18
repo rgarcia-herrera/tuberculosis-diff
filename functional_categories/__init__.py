@@ -8,13 +8,13 @@ for n in [0, 1, 2, 3, 5, 6, 7, 8, 9, 10]:
                         "%s.txt" % n), 'r') as f:
         r = csv.reader(f, delimiter="\t")
         for row in r:
-            ann[row[0]] = row
-
             synonyms = [syn.replace("<I>", "").replace("</I>", "")
                         for syn in row[1].split(', ')]
+            row[1] = ";".join(synonyms)
+
+            ann[row[0]] = row
             for syn in synonyms:
                 ann[syn] = row
-
             ann[row[2]] = row
 
 
