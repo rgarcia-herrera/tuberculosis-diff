@@ -42,7 +42,7 @@ De las fases LOG, contrastes:
  - entre 24h y 48h.
  - entre controles 4h, 24h y 48h
 
-<img src="design_log.png">
+<img src="log_design.png">
 
 ## Microarreglo NRP
 
@@ -52,7 +52,7 @@ Contrastes:
 
 - NRP2 24H contra NRP1 24h y NRP2 48h contra NRP1 48h.
 
-<img src="design_nrp.png">
+<img src="nrp_design.png">
 
 ## Contraste inter-microarreglo
 
@@ -65,15 +65,19 @@ Estos contrastes precisan de la creación de un baseline para
 normalizar entre los dos arreglos.
 
 
-# Bibliotecas para el análisis
+# Código fuente
 
-Para extraer las intensidades verdes y normalizarlas hemos usado
-exitosamente la biblioteca
-[Agilp](https://www.bioconductor.org/packages/release/bioc/vignettes/agilp/inst/doc/agilp_manual.pdf).
+El código en R del análisis usa la biblioteca [Limma](http://bioconductor.org/packages/2.5/bioc/html/limma.html).
 
-Pero también estamos examinando la posibilidad de usar [Limma](http://bioconductor.org/packages/2.5/bioc/html/limma.html).
+ - [nrp_limma.R](nrp_limma.R)
+ - [log_limma.R](log_limma.R)
 
 
-https://gist.github.com/brentp/1152860
+Usamos la biblioteca
+[Agilp](https://www.bioconductor.org/packages/release/bioc/vignettes/agilp/inst/doc/agilp_manual.pdf)
+en el pipeline de Python.
+
+
+# Referencias
 
 http://matticklab.com/index.php?title=Single_channel_analysis_of_Agilent_microarray_data_with_Limma
