@@ -16,3 +16,10 @@ for n in [0, 1, 2, 3, 5, 6, 7, 8, 9, 10]:
                 ann[syn] = row
 
             ann[row[2]] = row
+
+
+
+with open(path.join(path.dirname(path.realpath(__file__)),
+                    "macrophage.csv"), 'r') as f:
+    rows = csv.DictReader(f)
+    M = set([r['gene name'] for r in rows])
