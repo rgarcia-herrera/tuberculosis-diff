@@ -7,7 +7,7 @@ x <- read.maimages(targets, source="agilent", green.only=TRUE)
 y <- backgroundCorrect(x, method="normexp", offset=16)
 
 
-png('lplots/npr/pre-norm.png', width=14, height=14, units = 'cm', res=300)
+png('lplots/nrp/pre-norm.png', width=14, height=14, units = 'cm', res=300)
 plotDensities(y, legend=FALSE,
               col=c('grey10', 'grey20', 'grey30', 'grey40', 'grey50', 'grey60', 'grey70', 'grey80'))
 dev.off()
@@ -15,7 +15,7 @@ dev.off()
 
 y <- normalizeBetweenArrays(y, method="quantile")
 
-png('lplots/npr/normalized.png', width=14, height=14, units = 'cm', res=300)
+png('lplots/nrp/normalized.png', width=14, height=14, units = 'cm', res=300)
 plotDensities(y, legend=FALSE,
               col=c('grey10', 'grey20', 'grey30', 'grey40', 'grey50', 'grey60', 'grey70', 'grey80'))
 dev.off()
@@ -42,19 +42,19 @@ for (contrast in contrasts) {
     fit2 <- eBayes(fit2)
 
     output <- topTable(fit2, adjust="BH", coef=contrast, genelist=y.ave$genes, number=Inf)
-    write.table(output, file=paste("data/npr_contrasts/", contrast, ".txt", sep=""), sep="\t", quote=FALSE)
+    write.table(output, file=paste("data/nrp_contrasts/", contrast, ".txt", sep=""), sep="\t", quote=FALSE)
 
     output <- topTable(fit2, adjust="BH", coef=contrast, genelist=y.ave$genes, number=10)
-    write.table(output, file=paste("data/npr_contrasts/", contrast, "_top10.txt", sep=""), sep="\t", quote=FALSE)
+    write.table(output, file=paste("data/nrp_contrasts/", contrast, "_top10.txt", sep=""), sep="\t", quote=FALSE)
 
     results <- decideTests(fit2)
 
-    png(paste("lplots/npr/ma_", contrast, ".png", sep=""),
+    png(paste("lplots/nrp/ma_", contrast, ".png", sep=""),
         width=14, height=14, units = 'cm', res=300)
     plotMA(fit2, 1)
     dev.off()
 
-    png(paste("lplots/npr/volcano_", contrast, ".png", sep=""),
+    png(paste("lplots/nrp/volcano_", contrast, ".png", sep=""),
         width=14, height=14, units = 'cm', res=300)
     volcanoplot(fit2, names=fit2$genes, main=contrast)
     dev.off()
