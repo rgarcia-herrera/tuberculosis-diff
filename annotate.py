@@ -17,7 +17,7 @@ for row in reader:
     if SystematicName in fc.M:  #
         row += ['macrophage', ]
     else:
-        row += ['TB', ]
+        row += ['', ]
 
     row += fc.ann.get(SystematicName,
                       [])
