@@ -6,12 +6,10 @@ parser = argparse.ArgumentParser(
         description='split into macrophage and tb, annotate')
 parser.add_argument('exp', type=argparse.FileType('r'),
                     help='limma TopTable output as CSV file')
-parser.add_argument('out', type=argparse.FileType('w'),
-                    help='output path')
 args = parser.parse_args()
 
 reader = csv.reader(args.exp, delimiter='\t')
-w = csv.writer(args.out)
+w = csv.writer(open(args.exp.name.replace('.txt', '_ann.csv'), 'w'))
 
 for row in reader:
 
