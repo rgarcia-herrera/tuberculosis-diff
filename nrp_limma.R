@@ -1,6 +1,6 @@
 library(limma)
 
-targets <- readTargets("npr_targets.txt")
+targets <- readTargets("nrp_targets.txt")
 
 x <- read.maimages(targets, source="agilent", green.only=TRUE)
 
