@@ -7,7 +7,7 @@ x <- read.maimages(targets, source="agilent", green.only=TRUE)
 y <- backgroundCorrect(x, method="normexp", offset=16)
 
 
-png('lplots/log_pre-norm.png', width=14, height=14, units = 'cm', res=300)
+png('lplots/log/pre-norm.png', width=14, height=14, units = 'cm', res=300)
 plotDensities(y, legend=FALSE,
               col=c('grey10', 'grey20', 'grey30', 'grey40', 'grey50', 'grey60', 'grey70', 'grey80'))
 dev.off()
@@ -15,7 +15,7 @@ dev.off()
 
 y <- normalizeBetweenArrays(y, method="quantile")
 
-png('lplots/log_normalized.png', width=14, height=14, units = 'cm', res=300)
+png('lplots/log/normalized.png', width=14, height=14, units = 'cm', res=300)
 plotDensities(y, legend=FALSE,
               col=c('grey10', 'grey20', 'grey30', 'grey40', 'grey50', 'grey60', 'grey70', 'grey80'))
 dev.off()
