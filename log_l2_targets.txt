@@ -1,0 +1,9 @@
+FileName	Condition
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/ctrl_24h.txt	ctrl_24h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/ctrl_48h.txt	ctrl_48h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/ctrl_4h.txt	ctrl_4h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/log_24h_l1.txt	log_24h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/log_24h_l2.txt	log_24h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/log_48h_l1.txt	log_48h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/log_48h_l2.txt	log_48h
+/srv/home/rgarcia/tuberculosis-nrp/data/log_ctrl_lavado2/data/log_48h_l3.txt	log_48h
