@@ -1,6 +1,6 @@
 library(limma)
 
-targets <- readTargets("inter_targets.txt")
+targets <- readTargets("inter_targets_l2.txt")
 
 x <- read.maimages(targets, source="agilent", green.only=TRUE)
 
