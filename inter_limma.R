@@ -54,7 +54,9 @@ colnames(design) <- levels(f)
 fit <- lmFit(y.ave, design)
 
 contrasts <- c('log_24h-nrp1_24h', 'log_48h-nrp1_48h',
-               'log_24h-nrp2_24h', 'log_48h-nrp2_48h')
+               'log_24h-nrp2_24h', 'log_48h-nrp2_48h',
+               'ctl_24h-nrp1_24h', 'ctl_48h-nrp1_48h',
+               'ctl_24h-nrp2_24h', 'ctl_48h-nrp2_48h')
 
 for (contrast in contrasts) {
 
